@@ -1,0 +1,6 @@
+<mat-selection-list #sites [multiple]="false">
+    <mat-list-option *ngFor="let site of siteList" [value]="site">
+        <mat-list-item role="listitem" (click)="onSelect(site)">{{site}}</mat-list-item>
+    </mat-list-option>
+</mat-selection-list>
+

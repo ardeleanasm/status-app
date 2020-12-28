@@ -11,11 +11,18 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { ListComponent } from './widgets/list/list.component';
+import { ReportComponent } from './widgets/report/report.component';
+import { ConfigComponent } from './widgets/config/config.component';
+import { SiteSelectedService } from './widgets/site-selected.service';
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    ListComponent,
+    ReportComponent,
+    ConfigComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +38,11 @@ import { RouterModule } from '@angular/router';
   exports: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
-  ]
+    SidebarComponent,
+    ListComponent,
+    ReportComponent,
+    ConfigComponent
+  ],
+  providers: [SiteSelectedService],
 })
 export class SharedModule { }
