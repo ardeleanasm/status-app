@@ -12,17 +12,14 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { ListComponent } from './widgets/list/list.component';
-import { ReportComponent } from './widgets/report/report.component';
-import { ConfigComponent } from './widgets/config/config.component';
-import { SiteSelectedService } from './widgets/site-selected.service';
+
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
     ListComponent,
-    ReportComponent,
-    ConfigComponent
+    
   ],
   imports: [
     CommonModule,
@@ -40,9 +37,8 @@ import { SiteSelectedService } from './widgets/site-selected.service';
     FooterComponent,
     SidebarComponent,
     ListComponent,
-    ReportComponent,
-    ConfigComponent
+
   ],
-  providers: [SiteSelectedService],
+  providers: [],
 })
 export class SharedModule { }
