@@ -1,0 +1,30 @@
+<div>
+    <label>Add Website:
+      <input #websiteUrl />
+    </label>
+    <button (click)="add(websiteUrl.value); websiteUrl.value=''">
+      add
+    </button>
+    
+  </div>
+
+<mat-selection-list #sites [multiple]="false">
+    <mat-list-option *ngFor="let site of siteList" [value]="site">
+        <mat-list-item role="listitem" (click)="onSelect(site)">{{site.url}}
+            <button mat-icon-button (click) = "delete(site)">
+                <mat-icon>delete_forever</mat-icon>
+            </button>
+        </mat-list-item>
+    </mat-list-option>
+</mat-selection-list>
+<mat-divider></mat-divider>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+    <mat-card fxFlex="25">
+      {{getSelectedSite().url}}
+    </mat-card>    
+    <mat-card fxFlex="25">
+        {{getSelectedSite().url}}
+    </mat-card>    
+</div>
+

@@ -11,11 +11,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { ListComponent } from './widgets/list/list.component';
+
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    ListComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -31,7 +35,10 @@ import { RouterModule } from '@angular/router';
   exports: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
-  ]
+    SidebarComponent,
+    ListComponent,
+
+  ],
+  providers: [],
 })
 export class SharedModule { }
