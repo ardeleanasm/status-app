@@ -13,9 +13,10 @@ export class SettingsComponent implements OnInit {
     private formBuilder: FormBuilder
   ) { 
     this.settingsForm = this.formBuilder.group({
-      name: ["", Validators.required],
-      email:["", Validators.required],
-      password:["",Validators.required]
+      username: ["", Validators.required],
+      email:["", Validators.required,Validators.email],
+      password:["",Validators.required],
+      
     });
   }
 
@@ -27,6 +28,14 @@ export class SettingsComponent implements OnInit {
     let userName = this.settingsForm.get(['name']).value;
     
     console.log(userName);
+  }
+
+  getErrorMessage() {
+    if (this.settingsForm.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.settingsForm.hasError('email') ? 'Not a valid email' : '';
   }
 
 }
