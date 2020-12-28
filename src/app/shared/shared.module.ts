@@ -12,6 +12,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { ListComponent } from './widgets/list/list.component';
+import { SettingsComponent } from './widgets/settings/settings.component';
+import { FormBuilder } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { ListComponent } from './widgets/list/list.component';
     FooterComponent,
     SidebarComponent,
     ListComponent,
+    SettingsComponent,
+
+    
     
   ],
   imports: [
@@ -30,15 +36,17 @@ import { ListComponent } from './widgets/list/list.component';
     FlexLayoutModule,
     MatMenuModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
     ListComponent,
+    SettingsComponent
 
   ],
-  providers: [],
+  providers: [FormBuilder],
 })
 export class SharedModule { }
