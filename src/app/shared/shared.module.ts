@@ -16,6 +16,8 @@ import { SettingsComponent } from './widgets/settings/settings.component';
 import { FormBuilder } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { AlertComponent } from './widgets/alert/alert.component';
+import { AlertService } from './widgets/alert/alert.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     SidebarComponent,
     ListComponent,
     SettingsComponent,
+    AlertComponent,
 
     
     
@@ -47,9 +50,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     FooterComponent,
     SidebarComponent,
     ListComponent,
-    SettingsComponent
-
+    SettingsComponent,
+    AlertComponent
   ],
-  providers: [FormBuilder],
+  providers: [FormBuilder,AlertService],
 })
 export class SharedModule { }

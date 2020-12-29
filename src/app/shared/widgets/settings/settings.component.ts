@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AlertService } from '../alert/alert.service';
+import { User } from './user.model';
 
 @Component({
   selector: 'app-widget-settings',
@@ -8,41 +10,42 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class SettingsComponent implements OnInit {
   settingsForm;
+  private options = {
+    autoClose: false,
+    keepAfterRouteChange: false
+  };
 
   constructor(
-    private formBuilder: FormBuilder
-  ) { 
+    private formBuilder: FormBuilder,
+    protected alertService: AlertService
+  ) {
     this.settingsForm = this.formBuilder.group({
       username: ["", Validators.required],
-      email:["", Validators.required],
-      password:["",Validators.required],
-      passwordAgain:["",Validators.required],
-      
+      email: ["", Validators.required],
+      password: ["", Validators.required],
+      passwordAgain: ["", Validators.required],
+
     });
   }
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    console.log("Form submitted");
-    let userName = this.settingsForm.get(['username']).value;
-    
-    console.log(userName);
-  }
-
-  isValid(){
-    if (this.settingsForm.get(['password'])!=this.settingsForm.get(['passwordAgain'])){
-      return false;
-    }
-    return true;
-  }
-  getErrorMessage() {
-    if (this.settingsForm.hasError('required')) {
-      return 'You must enter a value';
+  onSubmit() {
+    let result = new User()
+      .setUsername(this.settingsForm.get(['username']).value)
+      .setEmail(this.settingsForm.get(['email']).value)
+      .setPassword(this.settingsForm.get(['password']).value, this.settingsForm.get(['passwordAgain']).value)
+      .isValid();
+      
+    if (result.isLeft()) {
+      this.alertService.warn(result.extract(), this.options);
+    } else {
+      this.alertService.success("Working", this.options);
     }
 
-    return this.settingsForm.hasError('email') ? 'Not a valid email' : '';
+
   }
+
 
 }
