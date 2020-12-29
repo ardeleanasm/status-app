@@ -1,0 +1,47 @@
+<form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+    <table>
+        <tr>
+            <th>
+                <label for="username">Username*</label>
+            </th>
+            <th>
+                <input id="name" type="text" formControlName="username" required>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label for="email">Email*</label>
+            </th>
+            <th>
+                <input id="email" type="text" formControlName="email" required>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label for="password">Password*</label>
+            </th>
+            <th>
+                <input id="password" type="password" formControlName="password" required>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label for="passwordAgain">Retype Password*</label>             
+            </th>
+            <th>
+                <input id="passwordAgain" type="password" formControlName="passwordAgain" required>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button class="button" type="submit" [disabled]="false">Save</button>
+            </th>
+            <th>
+                <alert></alert>
+            </th>
+        </tr>
+    </table>
+    
+</form>
+
+

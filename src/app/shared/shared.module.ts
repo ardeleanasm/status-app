@@ -12,6 +12,12 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { ListComponent } from './widgets/list/list.component';
+import { SettingsComponent } from './widgets/settings/settings.component';
+import { FormBuilder } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { AlertComponent } from './widgets/alert/alert.component';
+import { AlertService } from './widgets/alert/alert.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +25,10 @@ import { ListComponent } from './widgets/list/list.component';
     FooterComponent,
     SidebarComponent,
     ListComponent,
+    SettingsComponent,
+    AlertComponent,
+
+    
     
   ],
   imports: [
@@ -30,15 +40,19 @@ import { ListComponent } from './widgets/list/list.component';
     FlexLayoutModule,
     MatMenuModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
     ListComponent,
-
+    SettingsComponent,
+    AlertComponent
   ],
-  providers: [],
+  providers: [FormBuilder,AlertService],
 })
 export class SharedModule { }
