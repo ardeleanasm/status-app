@@ -1,22 +1,45 @@
 <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="username">
-            username*
-        </label>
-        <input id="name" type="text" formControlName="username" required>
-    </div>
-    <div>
-
-        <label for="email">
-            email*
-        </label>
-        <input id="email" type="text" formControlName="email" required>
-    </div>
-    <div>
-        <label for="password">
-            password*
-        </label>
-        <input id="password" type="password" formControlName="password" required>
-    </div>
-    <button class="button" type="submit" [disabled]="!settingsForm.valid">Save</button>
+    <table>
+        <tr>
+            <th>
+                <label for="username">Username*</label>
+            </th>
+            <th>
+                <input id="name" type="text" formControlName="username" required>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label for="email">Email*</label>
+            </th>
+            <th>
+                <input id="email" type="text" formControlName="email" required>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label for="password">Password*</label>
+            </th>
+            <th>
+                <input id="password" type="password" formControlName="password" required>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label for="passwordAgain">Retype Password*</label>             
+            </th>
+            <th>
+                <input id="passwordAgain" type="password" formControlName="passwordAgain" required>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button class="button" type="submit" [disabled]="isValid()">Save</button>
+                <alert></alert>
+            </th>
+        </tr>
+    </table>
+    
 </form>
+
+

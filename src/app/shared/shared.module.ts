@@ -15,6 +15,7 @@ import { ListComponent } from './widgets/list/list.component';
 import { SettingsComponent } from './widgets/settings/settings.component';
 import { FormBuilder } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatListModule,
     RouterModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+    
   ],
   exports: [
     HeaderComponent,
