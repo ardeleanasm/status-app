@@ -18,6 +18,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AlertComponent } from './widgets/alert/alert.component';
 import { AlertService } from './widgets/alert/alert.service';
+import { UserComponent } from './widgets/user/user.component';
+import { UserUpdateService } from './widgets/user/user-update.service';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { AlertService } from './widgets/alert/alert.service';
     ListComponent,
     SettingsComponent,
     AlertComponent,
+    UserComponent,
 
     
     
@@ -51,8 +55,9 @@ import { AlertService } from './widgets/alert/alert.service';
     SidebarComponent,
     ListComponent,
     SettingsComponent,
-    AlertComponent
+    AlertComponent,
+    UserComponent
   ],
-  providers: [FormBuilder,AlertService],
+  providers: [FormBuilder,AlertService,UserUpdateService],
 })
 export class SharedModule { }
